@@ -1,0 +1,35 @@
+class Employee{
+    String name;
+    String last_name;
+    double monthly_salary;
+
+    double yearly_salary(){
+        return(12*monthly_salary);
+    }
+    double hike_salary(){
+        return(yearly_salary()*1.1);
+    }
+    Employee(String name, String last_name, double monthly_salary ){
+        this.name = name;
+        this.last_name = last_name;
+        this.monthly_salary = monthly_salary;
+    }
+}
+
+public class EmployeeTest {
+    public static void main(String[] args){
+        Employee e1 = new Employee("Will","Smith", 54000);
+        System.out.println(e1.name + e1.last_name);
+        System.out.println("Monthly Salary:"+ e1.monthly_salary);
+        System.out.println("Yearly Salary:" + String.format("%.2f", e1.yearly_salary()));
+        System.out.println("Salary after hike:" + String.format("%.2f", e1.hike_salary()));
+
+        System.out.println("-----------------------------");
+
+        Employee e2 = new Employee("Millie","Bobby", 78000);
+        System.out.println(e2.name + e2.last_name);
+        System.out.println("Monthly Salary:"+ e2.monthly_salary);
+        System.out.println("Yearly Salary:" + String.format("%.2f", e2.yearly_salary()));
+        System.out.println("Salary after hike:" + String.format("%.2f", e1.hike_salary()));
+    }
+}
