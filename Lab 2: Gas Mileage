@@ -1,0 +1,46 @@
+import java.util.Scanner;
+class Data{
+    double gallo;
+    double miles;
+
+    Data(double gallo, double miles){
+        this.gallo = gallo;
+        this.miles = miles;
+    }
+
+    double milesPerGallon(){
+        return(miles/gallo);
+    }
+}
+public class GasMileage {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        int flag =0;
+        double total_gallo=0,total_miles=0;
+        int i = 1;
+
+        while(flag != 1){
+            System.out.println("Trip No:"+ i);
+            System.out.print("Miles Covered:");
+            double miles = sc.nextDouble();
+            System.out.print("Gallons used:");
+            double gallo = sc.nextDouble();
+
+            Data trip = new Data(gallo,miles);
+            System.out.println("Mileage:"+ String.format("%.2f",trip.milesPerGallon())+ "miles/gallon");
+
+            total_gallo += gallo;
+            total_miles += miles;
+
+            System.out.print("Enter 0 to continue and 1 to exit:");
+            int a = sc.nextInt();
+            flag = a;
+            i++;
+            System.out.println("------------------");
+        }
+        System.out.println("---------------------------------------");
+        Data Overall = new Data(total_gallo,total_miles);
+        System.out.println("Avg mileage for these "+ i+" trips is "+ String.format("%.2f",Overall.milesPerGallon())+ " miles/hour.");
+    }
+}
