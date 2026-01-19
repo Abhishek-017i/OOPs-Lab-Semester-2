@@ -1,0 +1,63 @@
+import java.util.Scanner;
+class Invoice{
+    String number;
+    String description;
+    int quantity;
+    double price;
+
+    Invoice(String num,String des,int qua,double pri){
+        this.number = num;
+        this.description = des;
+        this.quantity = qua;
+        this.price = pri;
+    }
+
+    double getInvoiceAmount(){
+        if(quantity <= 0){
+            return(0);
+        }
+        else if(price <= 0){
+            return(0.0);
+        }
+        else {
+            return (price * quantity);
+        }
+    }
+}
+
+
+public class InvoiceTest {
+    public static void main(String[] args) {
+        int flag = 0,i =1;
+        float sum = 0;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Bill Number:");
+        String num = sc.next();
+
+        System.out.println("Bill Number:" + num);
+        while(flag != 1) {
+            System.out.println("Item No:" + i);
+            sc.nextLine();
+
+            System.out.print("Description:");
+            String des = sc.nextLine();
+
+            System.out.print("Quantity:");
+            int qua = sc.nextInt();
+
+            System.out.print("Price:");
+            double pri = sc.nextDouble();
+
+            Invoice item = new Invoice(num,des,qua,pri);
+            System.out.println("Cost:Rs "+ item.getInvoiceAmount());
+
+            System.out.print("Enter 1 to exit and 0 to continue:");
+            int a = sc.nextInt();
+            flag = a;
+            sum += item.getInvoiceAmount();
+            i++;
+        }
+        System.out.print("Total Cost:Rs "+sum);
+    }
+}
