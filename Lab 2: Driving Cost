@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+class Information{
+    double miles;
+    double mileage;
+    double gaso_cost;
+    double toll;
+
+    Information(double miles,double mileage,double gaso_cost, double toll){
+        this.miles= miles;
+        this.mileage= mileage;
+        this.gaso_cost= gaso_cost;
+        this.toll = toll;
+    }
+    double averageFees(){
+        return(((miles/mileage)*gaso_cost + toll));
+    }
+}
+public class DrivingCost {
+    public static void main() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Miles Covered Today:");
+        double miles = sc.nextDouble();
+
+        System.out.print("Mileage of your vechile:");
+        double mileage = sc.nextDouble();
+
+        System.out.print("Cost of gasoline:");
+        double gaso_cost = sc.nextDouble();
+
+        System.out.print("Toll Charge:");
+        double toll = sc.nextDouble();
+
+        Information info = new Information(miles,mileage,gaso_cost,toll);
+        System.out.println("Average fees of driving today is Rs."+ String.format("%.2f",info.averageFees()));
+    }
+}
