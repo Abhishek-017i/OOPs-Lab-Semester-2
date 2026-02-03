@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+class data{
+    double v0;
+    double v1;
+    double t;
+
+    data(double v0,double v1, double t){
+        this.v0 = v0;
+        this.v1 = v1;
+        this.t = t;
+    }
+
+    double avgAccln(){
+        return((v1-v0)/t);
+    }
+
+}
+public class Accelerator {
+    public static void main(String []Args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Initial Velocity(m/sec):");
+        double vi = sc.nextDouble();
+        System.out.print("Final Velocity(m/sec):");
+        double vf = sc.nextDouble();
+        System.out.print("Time Taken(sec):");
+        double time = sc.nextDouble();
+
+        data d1 = new data(vi,vf,time);
+        System.out.println("Avg Acceleration(m/sec.sec):" + String.format("%.3f",d1.avgAccln()));
+    }
+}
