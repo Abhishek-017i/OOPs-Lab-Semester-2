@@ -1,0 +1,56 @@
+import java.util.Scanner;
+class Rectangle {
+    double length;
+    double breadth;
+    double x;
+    double y;
+
+    Rectangle(double x, double y, double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+        this.x = x;
+        this.y = y;
+    }
+}
+
+public class GeoArea {
+    public static void main(String[] Args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Rectangle 1");
+        System.out.print("x:");
+        double x1 = sc.nextDouble();
+        System.out.print("y:");
+        double y1 = sc.nextDouble();
+        System.out.print("length:");
+        double l1 = sc.nextDouble();
+        System.out.print("breadth:");
+        double b1 = sc.nextDouble();
+        Rectangle r1 = new Rectangle(x1,y1,l1,b1);
+
+        System.out.println("Rectangle 2");
+        System.out.print("x:");
+        double x2 = sc.nextDouble();
+        System.out.print("y:");
+        double y2 = sc.nextDouble();
+        System.out.print("length:");
+        double l2 = sc.nextDouble();
+        System.out.print("breadth:");
+        double b2 = sc.nextDouble();
+        Rectangle r2 = new Rectangle(x2,y2,l2,b2);
+
+        double xDis = Math.abs(r1.x - r2.x);
+        double yDis = Math.abs(r1.y - r2.y);
+
+        if ((xDis + r2.breadth/2 < r1.breadth/2) && (yDis + r2.length/2 < r1.length/2)){
+            System.out.println("Rectangle 2 is inside Rectangle 1");
+        }
+        else if (xDis < (r1.breadth+r2.breadth)/2 && yDis < (r1.length+r2.length)/2){
+            System.out.println("Rectangle 2 overlaps Rectangle 1");
+        }
+        else {
+            System.out.println("Rectangle 2 does not overlap Rectangle 1");
+        }
+
+    }
+}
