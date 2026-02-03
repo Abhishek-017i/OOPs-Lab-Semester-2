@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+class intel{
+    double accln;
+    double velo;
+
+    intel(double accln, double velo){
+        this.accln = accln;
+        this.velo = velo;
+    }
+
+    double length(){
+        return(Math.abs(velo*velo)/(2*accln));
+    }
+
+}
+
+public class takeOffLength {
+    public static void main(String []args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter take off speed(m/sec):");
+        double speed = sc.nextDouble();
+        System.out.print("Enter acceleration(m/sec.sec):");
+        double acc = sc.nextDouble();
+
+        intel i1 = new intel(acc,speed);
+        System.out.println("Length required for take off:"+String.format("%.3f",i1.length())+" metres");
+
+    }
+}
