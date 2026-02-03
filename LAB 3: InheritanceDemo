@@ -1,0 +1,39 @@
+class Figure{
+    double r,a,v;
+
+    public void dispArea() {
+        System.out.println("Total Area: " + String.format("%.4f", a));
+    }
+    public void dispVolm() {
+        System.out.println("Volume: " + String.format("%.4f", v));
+    }
+}
+
+class Cone extends Figure{
+    double s,h;
+    public double calcArea(){
+        a = 3.1420*r*(s+r);
+        return(3.1420*r*(s+r));
+    }
+    public double calcVolm(){
+        v = (3.1420/3)*r*r*h;
+        return((3.1420/3)*r*r*h);
+    }
+}
+
+public class InheritanceDemo {
+    public static void main(String []args){
+        Cone c1 = new Cone();
+        c1.r = 3;
+        c1.h = 4;
+        c1.s = 5;
+        //System.out.println("Total Area:" + String.format("%.4f",c1.calcArea()));
+        //System.out.println("Volume:" + String.format("%.4f",c1.calcVolm()));
+
+        c1.calcArea();
+        c1.calcVolm();
+
+        c1.dispArea();
+        c1.dispVolm();
+    }
+}
