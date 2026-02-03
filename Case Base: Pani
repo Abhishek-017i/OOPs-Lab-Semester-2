@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+class info{
+    double mass;
+    double ti;
+    double tf;
+
+    info(double mass, double ti, double tf){
+        this.mass = mass;
+        this.ti = ti;
+        this.tf = tf;
+    }
+
+    double heatRequired(){
+        return(mass*(tf-ti)*4184);
+    }
+}
+
+public class Pani {
+    public static void main(String []Args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Mass of water(Kg):");
+        double m1 = sc.nextDouble();
+        System.out.print("Initial temp(C):");
+        double initial = sc.nextDouble();
+        System.out.print("Final temp(C):");
+        double finale = sc.nextDouble();
+
+        info i1 = new info(m1,initial,finale);
+        System.out.println("Total Heat required:"+String.format("%.3f",i1.heatRequired()) + " joules");
+    }
+}
