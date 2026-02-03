@@ -1,0 +1,26 @@
+class BioData{
+    double mass;
+    double height;
+
+    BioData(double mass, double height){
+        this.mass = mass;
+        this.height = height;
+    }
+
+    double index(){
+        return((mass*0.45359237)/((height*0.0254)*(height*0.0254)));
+    }
+}
+
+public class BMI {
+    public static void main(String []Args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Height(Inch):");
+        double h1 = sc.nextDouble();
+        System.out.print("Weight(Pounds):");
+        double w1 = sc.nextDouble();
+
+        BioData b1 = new BioData(w1,h1);
+        System.out.println("BMI:"+String.format("%.3f",b1.index()));
+    }
+}
