@@ -1,0 +1,45 @@
+import java.util.Scanner;
+class x{
+    int i,j;
+    x(int i,int j){
+        this.i = i;
+        this.j = j;
+    }
+    int finalSum(){
+        return(i+j);
+    }
+}
+
+class y extends x{
+    y(int i, int j) {
+        super(i, j);
+    }
+    int product(){
+        return(i*j);
+    }
+}
+
+class z extends y{
+    z(int i, int j) {
+        super(i, j);
+    }
+    int difference(){
+        return(i-j);
+    }
+}
+
+public class MultilevelInheritanceDemo {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter num 1:");
+        int a = sc.nextInt();
+        System.out.print("Enter num 2:");
+        int b = sc.nextInt();
+
+        z sample = new z(a,b);
+
+        System.out.println("Sum:" + sample.finalSum());
+        System.out.println("Product:" + sample.product());
+        System.out.println("Difference:" + sample.difference());
+    }
+}
