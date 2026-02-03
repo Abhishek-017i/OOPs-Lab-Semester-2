@@ -1,0 +1,100 @@
+abstract class Figure1{
+    double pi = 3.1420;
+    double a , v;
+
+    abstract void calcArea();
+    abstract void calcVol();
+    abstract void disArea();
+    abstract void disVol();
+}
+//------------------------------------------------------------------------------
+class Sphere extends Figure1 {
+    double R;
+    public void setR(double R) {
+        this.R = R;
+    }
+
+    void calcVol() {
+        v = pi*R*R*R;
+    }
+    void calcArea() {
+        a = pi*R*R;
+    }
+    void disArea() {
+        System.out.println("Area of Sphere:" + a);
+    }
+    void disVol() {System.out.println("Volume of Sphere:" + v);}
+}
+//----------------------------------------------------------------------------------
+class Con extends Figure1
+{
+    double r,s,H;
+    void set(double r, double s, double H) {
+        this.r = r;
+        this.s = s;
+        this.H = H;
+    }
+
+    public void setH(double H)
+    {
+        this.H = H;
+    }
+    public void setr(double r) {
+        this.r = r;
+    }
+    public void setS(double s) {
+        this.s = s;
+    }
+
+    void disVol() {System.out.println("Volume of Cone:"+v);}
+    void disArea() {System.out.println("Area of Cone:"+a);}
+    void calcArea() {a = (pi * r * s) + (pi * r * r);}
+    void calcVol() {v = (pi*r*r*H) / 3;}
+}
+//------------------------------------------------------------------------
+class Cylinder extends Figure1 {
+    double r, h;
+
+    void set(double r, double h) {
+        this.r = r;
+        this.h = h;
+    }
+
+    void calcArea() {
+        a = 2 * pi * r * (r + h);
+    }
+    void calcVol() {
+        v = pi * r * r * h;
+    }
+    void disArea() {
+        System.out.println("Area of Cylinder:" + a);
+    }
+    void disVol() {
+        System.out.println("Volume of Cylinder:" + v);
+    }
+}
+//-----------------------------------------------------------------------------------
+public class Demo {
+    public static void main(String[] args) {
+        Sphere s = new Sphere();
+        s.setR(7);
+        s.calcArea();
+        s.calcVol();
+        s.disArea();
+        s.disVol();
+
+        Con c = new Con();
+        c.set(7, 12, 10);
+        c.calcArea();
+        c.calcVol();
+        c.disArea();
+        c.disVol();
+
+        Cylinder cy = new Cylinder();
+        cy.set(7, 10);
+        cy.calcArea();
+        cy.calcVol();
+        cy.disArea();
+        cy.disVol();
+    }
+}
