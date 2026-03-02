@@ -1,0 +1,37 @@
+class Course {
+    int id;
+    String description;
+    String duration;
+    String fees;
+
+    Course(int id, String description, String duration, String fees) {
+        this.id = id;
+        this.description = description;
+        this.duration = duration;
+        this.fees = fees;
+    }
+
+    void getData() {
+        System.out.println("ID: " + id);
+        System.out.println("About: " + description);
+        System.out.println("Duration: " + duration);
+        System.out.println("Fees: " + fees);
+        System.out.println("------------------------------------");
+    }
+}
+
+public class CourseEntry {
+    public static void main(String[] args) {
+        Course[] courses = new Course[5];
+
+        courses[0] = new Course(101, "Generative AI", "3 weeks", "$200");
+        courses[1] = new Course(102, "Python for Data Science", "3 months", "$6500 ");
+        courses[2] = new Course(103, "Deep Learning", "5 months", "$8000");
+        courses[3] = new Course(104, "Statistical Mathematics", "3 months", "$4500");
+        courses[4] = new Course(105, "Linear Algebra", "2 weeks", "$3000");
+
+        for (int i = 0; i < courses.length; i++) {
+            courses[i].getData();
+        }
+    }
+}
