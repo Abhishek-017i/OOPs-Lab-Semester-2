@@ -1,0 +1,31 @@
+class Film{
+    int Attendee;
+
+    Film(int Attendee){
+        this.Attendee = Attendee;
+    }
+
+    void totalProfit(){
+        Double munafa = (Attendee*4.5 - 20);
+        if(munafa > 0){
+            System.out.println("Total Profit: $"+munafa);
+        }
+        else if(munafa < 0){
+            System.out.println("Total Loss: $"+Math.abs(munafa));
+        }
+        else{
+            System.out.println("No Profit, No Loss...");
+        }
+    }
+}
+
+public class Movie {
+    public static void main(String []args){
+        Film f1 = new Film(25);
+        f1.totalProfit();
+
+        Film f2 = new Film(4);
+        f2.totalProfit();
+    }
+}
+
