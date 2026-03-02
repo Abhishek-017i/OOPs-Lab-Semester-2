@@ -1,0 +1,55 @@
+class SafaiYantra{
+    boolean isOn = false;
+    int clothesCount;
+    boolean hasDetergent;
+
+    public SafaiYantra() {
+        this.isOn = isOn;
+        this.clothesCount = clothesCount;
+        this.hasDetergent = hasDetergent;
+    }
+//---------------------------------------------------------------
+    public void switchOn() {
+        isOn = true;
+        System.out.println("Washing Machine is now ON.");
+    }
+//---------------------------------------------------------------
+    public int acceptClothes(int noOfClothes) {
+        if (isOn) {
+            clothesCount = noOfClothes;
+            System.out.println(noOfClothes + " clothes have been loaded.");
+            return clothesCount;
+        }
+        else {
+            System.out.println("Machine is off.");
+            return 0;
+        }
+    }
+//-----------------------------------------------------------------
+    public void acceptDetergent() {
+        if (isOn) {
+            hasDetergent = true;
+            System.out.println("Detergent added.");
+        }
+        else {
+            System.out.println("Machine is off.");
+        }
+    }
+//-------------------------------------------------------------------
+    public void switchOff() {
+        isOn = false;
+        System.out.println("Washing Machine is now OFF.");
+    }
+}
+public class WashingMachine{
+    public static void main(String[] args) {
+        SafaiYantra s1 = new SafaiYantra();
+
+        s1.switchOn();
+        int loadedCount = s1.acceptClothes(12);
+        s1.acceptDetergent();
+        s1.switchOff();
+
+        System.out.println("\nClothes Washed:" + loadedCount);
+    }
+}
