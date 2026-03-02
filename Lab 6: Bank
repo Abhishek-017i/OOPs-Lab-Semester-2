@@ -1,0 +1,36 @@
+class Khata{
+    Double balance;
+    Double amount;
+    Khata(Double balance){
+        this.balance = balance;
+    }
+
+    void Deposit(Double amount){
+        balance += amount;
+    }
+    void Withdraw(Double amount){
+        if(balance > amount){
+            balance -= amount;
+        }
+        else{
+            System.out.println("Sorry, Your are not rich...");
+            return;
+        }
+    }
+    void dispBalance(){
+        System.out.println("Balance:"+ balance);
+    }
+}
+
+public class Bank {
+    public static void main(String []args){
+        Khata k1 = new Khata(150000.);
+        k1.Deposit(1533.3);
+        k1.dispBalance();
+
+        k1.Withdraw(12769.);
+        k1.dispBalance();
+
+        k1.Withdraw(3287923.);
+    }
+}
