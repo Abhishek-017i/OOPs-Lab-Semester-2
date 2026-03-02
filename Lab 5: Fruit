@@ -1,0 +1,32 @@
+class content{
+    String fruitName;
+    String type;
+    int price;
+
+    content(String fruitName,String type, int price){
+        this.fruitName = fruitName;
+        this.type = type;
+        this.price = price;
+    }
+
+    void displayFruit(){
+        System.out.println("Name:"+ fruitName);
+        System.out.println("Type:"+ type);
+        System.out.println("Price:"+ price);
+        System.out.println("---------------------------------");
+    }
+}
+
+public class Fruit {
+    public static void main (String []args){
+        content c1 = new content("Apple","Single",180);
+        content c2 = new content("Orange","Single",90);
+        content c3 = new content("Blue-Berry","Bunch",250);
+        content c4 = new content("Grapes","Bunch",50);
+
+        c1.displayFruit();
+        c2.displayFruit();
+        c3.displayFruit();
+        c4.displayFruit();
+    }
+}
