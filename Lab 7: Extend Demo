@@ -1,0 +1,45 @@
+class Teacher{
+    String name;
+    int age;
+    String id;
+
+    Teacher(String name, int age, String id){
+        this.name = name;
+        this.age = age;
+        this.id = id;
+    }
+//--------------------------------------------------------
+    void displayBaseInfo(){
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+//==============================================================================
+class Student extends Teacher{
+    double marks;
+    String grade;
+
+    Student(String name, int age, String id, double marks, String grade){
+        super(name, age, id);
+        this.marks = marks;
+        this.grade = grade;
+    }
+
+    void displayStudentDetails() {
+        System.out.println("----------------------------");
+        displayBaseInfo();
+        System.out.println("Marks: " + marks);
+        System.out.println("CGPA: " + grade);
+    }
+}
+
+public class ExtendDemo {
+    public static void main(String[] args) {
+        Student s1 = new Student("Aryan", 20, "013", 88.5, "9.56");
+        Student s2 = new Student("Ramesh", 21, "323", 68.5, "7.56");
+
+        s1.displayStudentDetails();
+        s2.displayStudentDetails();
+    }
+}
