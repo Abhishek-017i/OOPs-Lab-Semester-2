@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+enum Answers {
+    CORRECT(1),INCORRECT(0),UNANSWERED(2);
+
+    int id;
+    Answers(int id){
+        this.id = id;
+    }
+
+}
+
+public class Quiz {
+    public static void main(String []args){
+        Scanner sc = new Scanner(System.in);
+        char[] correctAnswer = {'C','A','B','D','B','C','C','A'};
+        char[] submittedAnswer = new char[8];
+        int score=0;
+        Answers[] status = new Answers[8];
+
+    for(int i = 0; i < 8; i++) {
+        System.out.println(i + 1 + ". Blah blah blah");
+        System.out.println("A.        B.        C.       D.        ");
+        submittedAnswer[i] = sc.next().toUpperCase().charAt(0);
+
+        if (correctAnswer[i] == submittedAnswer[i]) {
+            score++;
+            status[i] = Answers.CORRECT;
+        }
+        else if (submittedAnswer[i] == 'A' || submittedAnswer[i] == 'B' || submittedAnswer[i] == 'C' || submittedAnswer[i] == 'D') {
+            status[i] = Answers.INCORRECT;
+        }
+        else {
+            status[i] = Answers.UNANSWERED;
+        }
+    }
+
+    System.out.println("S.No   YourAnswer  CorrectAnswer  Status");
+    for(int j = 0; j < 8; j++){
+        System.out.println(j+1+"          "+submittedAnswer[j]+"          "+correctAnswer[j]+"             "+status[j]);
+    }
+
+    if(score >= 5){
+        System.out.println("You Passsed.");
+    }
+    else{
+        System.out.println("You Failed");
+    }
+
+    }
+}
