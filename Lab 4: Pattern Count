@@ -1,12 +1,11 @@
 import java.util.Scanner;
-class Perfect{
+class Occurence{
     String s;
 
-    Perfect(String s){
+    Occurence(String s){
         this.s = s;
     }
-//----------------------------------------------
-    int counter(String s, char a){
+    int counter(char a){
         int count = 0;
         for(int i = 0; i < s.length() ; i++){
             if(s.charAt(i) == a){
@@ -15,31 +14,30 @@ class Perfect{
         }
         return count;
     }
-//-----------------------------------------------
-    void isPerfect(){
-        int k = 0;
-        for(int i = 0; i < s.length(); i++ ){
-            k++;
-            if(counter(s, s.charAt(i)) != 1){
-                System.out.println("Not Perfect");
-                return;
+//-------------------------------------------------
+    void freq(int k) {
+        String copy = s;
+        for (int j = 0; j < copy.length(); j++) {
+            if (copy.charAt(j) != '`'){
+                if (counter(copy.charAt(j)) > k){
+                    System.out.print(copy.charAt(j) + "  ");
+                    copy = copy.replace(copy.charAt(j), '`');
+                }
             }
         }
-        if(k == s.length()){
-            System.out.println("Perfect");
-        }
-
     }
-//------------------------------------------------
-}
+//----------------------------------------------
+};
 
-public class Four {
-    public static void main(String []args){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your string");
-        String s1 = sc.nextLine();
+public class Three {
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter your string");
+    String s1 = sc.nextLine();
+    System.out.print("N:");
+    int n = sc.nextInt();
 
-        Perfect p1 = new Perfect(s1);
-        p1.isPerfect();
+    Occurence o1 = new Occurence(s1);
+    o1.freq(n);
     }
 }
