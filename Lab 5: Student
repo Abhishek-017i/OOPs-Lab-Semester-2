@@ -1,0 +1,48 @@
+class Jaankari {
+    String name;
+    Double m1, m2, m3;
+
+    Jaankari(String name, Double m1, Double m2, Double m3) {
+        this.name = name;
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+    }
+//----------------------------------------------------------
+    void dispName() {
+        System.out.println(name);
+    }
+//---------------------------------------------------------
+    void passFail() {
+        if (m1 < 0 || m1 > 100 || m3 < 0 || m3 > 100 || m2 < 0 || m2 > 100) {
+            System.out.println("Invalid Scores Entered");
+            return ;
+        }
+
+        System.out.println(String.format("%.2f",(m1+m2+m3)/3) + "% Scored");
+        if (m1 + m2 + m3 >= 150) {
+            System.out.println("Pass");
+        }
+        else {
+            System.out.println("Failed"); ;
+        }
+        System.out.println("-------------------------------------------");
+    }
+//--------------------------------------------------------
+};
+
+public class Student{
+        public static void main(String []args){
+            Jaankari j1 = new Jaankari("Ramesh Hatyara",50.,40.,80.);
+            j1.dispName();
+            j1.passFail();
+
+            Jaankari j2 = new Jaankari("Billu Badmos",60.,70.,90.);
+            j2.dispName();
+            j2.passFail();
+
+            Jaankari j3 = new Jaankari("Bhavya Kulhaadiwala",40.,30.,20.);
+            j3.dispName();
+            j3.passFail();
+        }
+    }
