@@ -1,0 +1,16 @@
+public class Matrix {
+    public static void main(String[] args) {
+        int xSize = 3, ySize = 3, zSize = 3;
+        int[] arr = new int[xSize * ySize * zSize];
+
+        int val_121 = arr[fetch(1,2,1,ySize,zSize)] = 99;
+        int val_000 = arr[fetch(0,0,0,ySize,zSize)] = 100;
+
+        System.out.println("M(1,2,1): " + val_121);
+        System.out.println("M(0,0,0): " + val_000);
+    }
+    //--------------------------------------------------------------------------------
+    public static int fetch(int x, int y, int z, int ySize, int zSize) {
+        return((x * ySize * zSize) + (y * zSize) + z) ;
+    }
+}
