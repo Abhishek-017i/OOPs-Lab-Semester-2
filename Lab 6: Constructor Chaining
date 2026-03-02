@@ -1,0 +1,42 @@
+class Vehicle {
+    String type = "Vehicle Class";
+
+    Vehicle() {
+        System.out.println("Vehicle Constructor Called");
+    }
+}
+//----------------------------------------------------------------
+class Carz extends Vehicle {
+    String type = "Carz";
+    Carz() {
+        super();
+        System.out.println("Car Constructor Called");
+    }
+
+    void display() {
+        System.out.println("Carz Class: " + this.type);
+        System.out.println("Vechile Class: " + super.type);
+    }
+}//-----------------------------------------------------------------
+class Mercedes extends Carz {
+    String Benz;
+
+    Mercedes() {
+        this("Benz");    //Calls 32
+        System.out.println("Mercedes No-Arg Constructor Called");
+    }
+
+    Mercedes(String Benz) {
+        super();
+        this.Benz = Benz;
+        System.out.println("Mercedes Arg Constructor Called: " + Benz);
+    }
+}
+
+public class ConstructorChaining {
+    public static void main(String[] args) {
+
+        Mercedes m1 = new Mercedes(); //Constructor Chaining
+        m1.display();  //Super Member Access
+    }
+}
