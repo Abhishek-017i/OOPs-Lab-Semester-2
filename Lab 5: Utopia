@@ -1,0 +1,29 @@
+class Taxation{
+    String id;
+    double hrs;
+    Taxation(String id, double hrs){
+        this.id = id;
+        this.hrs = hrs;
+    }
+
+    double grossPay(){
+        return(hrs*12);
+    }
+    double netPay(){
+        return(grossPay()*0.85);
+    }
+    void disp(){
+        System.out.println("Employee Id:"+ id);
+        System.out.println("Hrs Worked:"+ hrs);
+        System.out.println("Gross Pay:$"+ grossPay());
+        System.out.println("Net Pay(After Taxation):$"+ netPay());
+        System.out.println("-----------------------------------------");
+    }
+}
+
+public class Utopia {
+    public static void main(String[] args){
+        Taxation t1 = new Taxation("001", 105);
+        t1.disp();
+    }
+}
