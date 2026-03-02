@@ -1,0 +1,71 @@
+class Vehicle{
+    String brand;
+    String fuelType;
+
+    Vehicle(String brand, String fuelType){
+        this.brand = brand;
+        this.fuelType = fuelType;
+    }
+
+    void displayInfo(){
+        System.out.println("-------------------------");
+        System.out.println("Brand: " + brand);
+        System.out.println("Fuel: "+ fuelType);
+
+    }
+}
+//-------------------------------------------------------------------
+class Car extends Vehicle{
+    int totalSeats;
+
+    Car(String brand, String fuelType, int seatingCapacity){
+        super(brand, fuelType);
+        this.totalSeats = seatingCapacity;
+    }
+
+    void maxSpeed(){
+        System.out.println(brand + "Max Speed: 220 km/h");
+    }
+}
+//-------------------------------------------------------------------------------
+class Bicycle extends Vehicle{
+    boolean hasGear;
+
+    Bicycle(String brand, boolean hasGear){
+        super(brand, "Manual");
+        this.hasGear = hasGear;
+    }
+
+    void maxSpeed(){
+        System.out.println(brand + "Max Speed: 45 km/h");
+    }
+}
+//--------------------------------------------------------------------------------------
+class Scooter extends Vehicle{
+    String engine;
+
+    Scooter(String brand, String fuelType, String engine){
+        super(brand, fuelType);
+        this.engine = engine;
+    }
+    void maxSpeed(){
+        System.out.println(brand + "Max Speed: 95 km/h");
+    }
+}
+//====================================================================================================
+public class AutoMobile{
+    public static void main(String[] args){
+        Car c1 = new Car("Mercedes Benz", "Electric", 5);
+        Bicycle b1 = new Bicycle("Avon Stryyder", true);
+        Scooter s1 = new Scooter("Active", "Petrol-E20", "165 cc");
+        
+        c1.displayInfo();
+        c1.maxSpeed();
+
+        b1.displayInfo();
+        b1.maxSpeed();
+        
+        s1.displayInfo();
+        s1.maxSpeed();
+    }
+}
