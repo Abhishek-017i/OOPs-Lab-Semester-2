@@ -1,0 +1,32 @@
+import java.util.Scanner;
+class Information{
+    Double principal;
+    Double rate;
+    Double time;
+
+    Information(Double principal, Double rate, Double time){
+        this.principal = principal;
+        this.rate = rate;
+        this.time = time;
+    }
+
+    double simpleInterest(){
+        return(principal*rate*time)/(1200);
+    }
+}
+
+public class SimpleInterest {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your Principal Amount:");
+        Double a = sc.nextDouble();
+        System.out.print("Enter rate of interest:");
+        Double b = sc.nextDouble();
+        System.out.print("Enter time(in months);");
+        Double c = sc.nextDouble();
+
+        Information i1 = new Information(a,b,c);
+        System.out.println("Rate of Interest:"+String.format("%.3f",i1.simpleInterest()));
+    }
+}
