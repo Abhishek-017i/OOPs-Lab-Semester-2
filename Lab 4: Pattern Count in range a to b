@@ -1,0 +1,44 @@
+import java.util.Scanner;
+class pattern{
+    int a;
+    int b;
+    String s;
+    pattern(int a, int b, String s){
+        this.a = a;
+        this.b = b;
+        this.s = s;
+    }
+//--------------------------------------------------
+    int stringFormation(){
+        int count = 0;
+        String s1 = new String();
+
+        for(int i = a; i <= b; i++){
+            s1 = Integer.toString(i);
+            for (int j = 0; j < s1.length() - s.length()+1 ;j++ ){
+                if(s1.substring(j,j+s.length()).equals(s)){
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+        return count;
+    }
+}
+public class Five {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("a(initial):");
+        int x = sc.nextInt();
+        System.out.print("b(final):");
+        int y = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Your target string:");
+        String abc = sc.nextLine();
+
+        String s1 = new String(abc);
+        pattern p1 = new pattern(x,y,s1);
+        p1.stringFormation();
+
+    }
+}
