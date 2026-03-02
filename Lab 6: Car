@@ -1,0 +1,45 @@
+abstract class Car {
+    abstract void avg();
+    abstract void mode();
+}
+//------------------------------------------------------
+class Maruti extends Car {
+    void avg() {
+        System.out.println("Maruti Avg: 23 ");
+    }
+    void mode() {
+        System.out.println("Maruti Mode Activated");
+    }
+    void display(String s){
+        System.out.println(s);
+    }
+}
+//-----------------------------------------------------------
+class Santro extends Car {
+    void avg() {
+        System.out.println("Santro Avg: 16");
+    }
+    void mode() {
+        System.out.println("Santro Mode Activated");
+    }
+    void display(String s){
+        System.out.println(s);
+    }
+}
+//----------------------------------------------------------
+public class Car1 {
+    public static void main(String[] args) {
+        Car myCar;
+        Maruti m1 = new Maruti();
+        m1.display("Maruti Suzuki");
+        m1.avg();
+        m1.mode();
+
+        System.out.println();
+
+        Santro s1 = new Santro();
+        s1.display("Hyundai Santro");
+        s1.avg();
+        s1.mode();
+    }
+}
