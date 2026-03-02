@@ -1,0 +1,88 @@
+interface QueueImpl {
+    void insert(int value) throws QueueOverflowException;
+    int delete() throws QueueUnderflowException;
+    void display();
+}
+//======================================================================================= Exception Handling
+class QueueOverflowException extends Exception { }
+class QueueUnderflowException extends Exception { }
+//======================================================================================= Implementaion
+class QueueDemo implements QueueImpl{
+    int[] bus = new int[10];
+    int current = 0;
+    int MAX = 10;
+//-------------------------------------------------------------------------- 1. Insertion
+    public void insert(int ticketID) throws QueueOverflowException{
+        if (current == MAX){
+            System.out.println("Overflow: The queue is full. Person " + ticketID + " cannot join.");
+            throw new QueueOverflowException();
+        }
+        bus[current] = ticketID;
+        current++;
+        System.out.println("Person " + ticketID);
+    }
+//------------------------------------------------------------------------- 2. Deletion
+    public int delete() throws QueueUnderflowException{
+        if (current == 0){
+            System.out.println("![Underflow] No one is in the queue to buy a ticket.");
+            throw new QueueUnderflowException();
+        }
+        int personLeaving = bus[0];
+
+        for (int i = 0; i < current - 1; i++) {
+            bus[i] = bus[i + 1];
+        }
+        current--;
+        return personLeaving;
+    }
+//--------------------------------------------------------------------------- 3. Display
+    public void display(){
+        if (current == 0){
+            System.out.println("Queue Status: Empty");
+        }
+        else{
+            System.out.print("Current Queue: ");
+            for (int i = 0; i < current; i++){
+                System.out.print(bus[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+//=================================================================================================
+public class Queue {
+    public static void main(String[] args){
+        QueueDemo stand = new QueueDemo();
+//----------------------------------------------------------------------------------------------
+        try{
+            stand.insert(1);
+            stand.insert(2);
+            stand.insert(3);
+            stand.display();
+
+            System.out.println("Action: Ticket sold to " + stand.delete());
+            stand.display();
+
+            for(int i = 1; i <= 8; i++){
+                stand.insert(3 + i);
+            }
+            stand.display();
+            stand.insert(11);
+        }
+        catch(QueueOverflowException e){
+            System.out.println("Overflow Exception.");
+        }
+        catch(QueueUnderflowException e){
+            System.out.println("Underflow Exception.");
+        }
+//---------------------------------------------------------------------------------------
+        try{
+            while(true){
+                stand.delete();
+            }
+        }
+        catch(QueueUnderflowException e){
+            System.out.println("Underflow Exception: You can't remove anything from a empty Queue");
+        }
+    }
+}
