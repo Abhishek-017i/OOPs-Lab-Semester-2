@@ -1,0 +1,57 @@
+class Product{
+    String ProductId;
+    String CategoryId;
+    Double UnitPrice;
+
+    Product(String ProductId,String CategoryId,Double UnitPrice){
+        this.ProductId = ProductId;
+        this.CategoryId = CategoryId;
+        this.UnitPrice = UnitPrice;
+    }
+
+    void dispProduct(){
+        System.out.println("Product Id: " + ProductId + " Rs");
+        System.out.println("Category Id: " + CategoryId);
+        System.out.println("Unit Price: " + UnitPrice);
+        System.out.println("------------------------------");
+    }
+}
+//-----------------------------------------------------------------------------------------------
+class ElectricalProduct extends Product{
+    String VoltageRange;
+    Double Wattage;
+
+    ElectricalProduct(String ProductId, String CategoryId, Double UnitPrice, String VoltageRange, Double Wattage) {
+        super(ProductId, CategoryId, UnitPrice);
+        this.VoltageRange = VoltageRange;
+        this.Wattage = Wattage;
+    }
+
+    void updateRange(String abc){
+        VoltageRange = abc;
+        }
+    void updateWattage(Double x){
+        Wattage = x;
+        }
+    void dispEP(){
+        System.out.println("Product Id: " + ProductId);
+        System.out.println("Category Id: " + CategoryId);
+        System.out.println("Unit Price: " + UnitPrice + " Rs");
+        System.out.println("Volatge Range: " + VoltageRange + " Volts");
+        System.out.println("Wattage: " + Wattage + " Watts");
+        System.out.println("-------------------------------");
+    }
+}
+//--------------------------------------------------------------------------------------
+public class Three {
+    public static void main(String[] args){
+        Product p1 = new Product("MiltonUnisteel_0123","Bottle_244i983",379.5);
+        p1.dispProduct();
+
+        ElectricalProduct ep1 = new ElectricalProduct("SamsoongCharger_218e9i", "Charger_wekf2", 1212.2,"180-220",65.);
+        ep1.dispEP();
+        ep1.updateRange("120-150");
+        ep1.updateWattage(75.);
+        ep1.dispEP();
+    }
+}
