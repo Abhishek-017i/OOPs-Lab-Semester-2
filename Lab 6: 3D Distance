@@ -1,0 +1,32 @@
+import java.util.Scanner;
+class Coordinate{
+    int x;
+    int y;
+    int z;
+
+    Coordinate(int x, int y, int z){
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    void distance(){
+        System.out.println("Distance of (" + x +","+ y +","+ z + ") from origin is "+ String.format("%.3f",Math.pow(Math.pow(x,2)+Math.pow(y,2)+Math.pow(z,2),0.5)));
+    }
+}
+
+public class TeenParimaaniye {
+    public static void main(String []args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter x:");
+        int a = sc.nextInt();
+        System.out.print("Enter y:");
+        int b = sc.nextInt();
+        System.out.print("Enter z:");
+        int c = sc.nextInt();
+
+    Coordinate c1 = new Coordinate(a,b,c);
+    c1.distance();
+
+    }
+}
