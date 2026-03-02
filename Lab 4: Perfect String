@@ -1,0 +1,43 @@
+import java.util.Scanner;
+class Occurence{
+    String s;
+
+    Occurence(String s){
+        this.s = s;
+    }
+    int counter(char a){
+        int count = 0;
+        for(int i = 0; i < s.length() ; i++){
+            if(s.charAt(i) == a){
+                count++;
+            }
+        }
+        return count;
+    }
+//-------------------------------------------------
+    void freq(int k) {
+        String copy = s;
+        for (int j = 0; j < copy.length(); j++) {
+            if (copy.charAt(j) != '`'){
+                if (counter(copy.charAt(j)) > k){
+                    System.out.print(copy.charAt(j) + "  ");
+                    copy = copy.replace(copy.charAt(j), '`');
+                }
+            }
+        }
+    }
+//----------------------------------------------
+};
+
+public class Three {
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter your string");
+    String s1 = sc.nextLine();
+    System.out.print("N:");
+    int n = sc.nextInt();
+
+    Occurence o1 = new Occurence(s1);
+    o1.freq(n);
+    }
+}
