@@ -1,0 +1,45 @@
+class Book{
+    String id;
+    String author;
+    Double price;
+
+    Book(String id,String author,Double price){
+        this.id = id;
+        this.author = author;
+        this.price = price;
+    }
+}
+
+class Periodical extends Book{
+    String period;
+    Periodical(String id,String author,Double price){
+        super(id, author, price);
+        super.id = id;
+        super.author = author;
+        super.price = price;
+    }
+    void updatePrice(Double p){
+        price = p;
+    }
+    void updatePeriod(String s){
+        period = s;
+    }
+    void display(){
+        System.out.println("--------------------------");
+        System.out.println("Id:"+ id);
+        System.out.println("Author:"+author);
+        System.out.println("Price:"+price);
+        System.out.println("Period:"+period);
+        System.out.println("--------------------------");
+    }
+}
+
+public class Archive {
+    public static void main(String []args){
+        Periodical b1 = new Periodical("12354scjh","RD Sharma",450.32);
+        b1.display();
+        b1.updatePeriod("Monthly");
+        b1.updatePrice(500.);
+        b1.display();
+    }
+}
